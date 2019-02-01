@@ -20,7 +20,7 @@ while($r = mysqli_fetch_assoc($response)){ ?>
         <div>
             <p><?php echo $r['descript'];?></p>
             <i>$<?php echo $r['price'];?></i>
-            <form action="cart.php" method="post">
+            <form action="update.php" method="post">
                 <input type="hidden" name="item" value="<?php echo $r['id'];?>">
                 <input type="hidden" name="quant" value="1">
                 <input type="submit" value="Add to Cart" class="btn btn-outline-primary btn-sm">

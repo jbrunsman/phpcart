@@ -2,21 +2,9 @@
 require_once "../mysqli_connect.php";
 include "top.php";
 
-if ($_POST) {
-    if (is_numeric($_POST['quant']) && $_POST['quant'] < 20) {
-        $posted_quant = floor($_POST['quant']);
-        if (array_key_exists('replace', $_POST)) {
-            $_SESSION['cart'][$_POST['item']] = $posted_quant;
-        } else {
-            $_SESSION['cart'][$_POST['item']] += $posted_quant;
-        }
-
-        if ($_SESSION['cart'][$_POST['item']] <= 0) {
-            unset($_SESSION['cart'][$_POST['item']]);
-        }
-    } else {
+if ($_SESSION['baditem']) {
         echo '<div class="alert alert-danger" role="alert">Invalid Quantity</div>';
-    }
+        $_SESSION['baditem'] = false;
 }
 
 if (array_key_exists('cart', $_SESSION) && !empty($_SESSION['cart'])) {
@@ -48,7 +36,7 @@ if (array_key_exists('cart', $_SESSION) && !empty($_SESSION['cart'])) {
                 <?php echo $info['name'];?>
             </td>
             <td>
-                <form action="cart.php" method="post">
+                <form action="update.php" method="post">
                     <input type="text" name="quant" value="<?php echo $quantity;?>" class="priceinput">
                     <input type="hidden" name="item" value="<?php echo $info['id'];?>">
                     <input type="hidden" name="replace" value="1">
@@ -85,6 +73,8 @@ if (array_key_exists('cart', $_SESSION) && !empty($_SESSION['cart'])) {
 <br><br>
 
 <?php
+
+/* for testing
 echo "POST: ";
 if ($_POST) { echo var_dump($_POST); }
 echo "<br>";
@@ -93,9 +83,8 @@ if (array_key_exists('cart', $_SESSION)) { echo var_dump($_SESSION['cart']); }
 echo "<br>";
 
 echo "<br>";
-?>
+*/
 
-<?php
 mysqli_close($dbc);
 include "bottom.php";
 

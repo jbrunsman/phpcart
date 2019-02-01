@@ -24,7 +24,7 @@ if($item) {
         <p><?php echo $item['descript'];?></p>
         <i><?php echo $item['price'];?>
 
-        <form action="cart.php" method="post">
+        <form action="update.php" method="post">
             <input type="hidden" name="item" value="<?php echo $item['id'];?>">
             <select name="quant">
                 <?php for ($i=1; $i<11; $i++) {
