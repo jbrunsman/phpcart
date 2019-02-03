@@ -39,7 +39,7 @@ if (array_key_exists('cart', $_SESSION) && !empty($_SESSION['cart'])) {
                 <form action="update.php" method="post">
                     <input type="text" name="quant" value="<?php echo $quantity;?>" class="priceinput">
                     <input type="hidden" name="item" value="<?php echo $info['id'];?>">
-                    <input type="hidden" name="replace" value="1">
+                    <input type="hidden" name="replace" value="true">
                     <input type="submit" value="update" class="btn btn-outline-secondary btn-sm">
                 </form>
             </td>
@@ -63,6 +63,11 @@ if (array_key_exists('cart', $_SESSION) && !empty($_SESSION['cart'])) {
             </tr>
         </tfoot>
     </table>
+
+    <form action="checkout.php" method="post">
+        <input type="hidden" name="checkout_valid" value="true">
+        <input type="submit" value="Checkout" class="btn btn-outline-primary btn-sm">
+    </form>
 
 <?php
 } else {
