@@ -12,7 +12,7 @@ include "top.php";
 $query = "SELECT * FROM products";
 $response = mysqli_query($dbc, $query);
 while($r = mysqli_fetch_assoc($response)){ ?>
-    <div class = "col-lg-4 col-md-6 col-sm-12 mb-5">
+    <div class = "col-md-4 col-sm-6 mb-5">
         <h3><?php echo $r['name'];?></h3>
         <a href="info.php?itemid=<?php echo $r['id'];?>">
             <img src="img/<?php echo $r['imglink'];?>" alt="<?php echo $r['name'];?>" class="img-fluid">

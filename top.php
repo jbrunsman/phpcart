@@ -11,7 +11,7 @@
         <title>PHP Online Store</title>
     </head>
     <body>
-        <div class="mx-auto" style="width: 900px;" class="container-fluid">
+        <div class="mx-auto container">
             <h1>PHP Online Store</h1>
             <a href="index.php">Home</a> - <a href="cart.php">Cart</a>
             <span class="badge badge-primary badge-pill" id="cart_count"></span>
