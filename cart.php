@@ -66,7 +66,7 @@ if (array_key_exists('cart', $_SESSION) && !empty($_SESSION['cart'])) {
 
     <form action="checkout.php" method="post">
         <input type="hidden" name="checkout_valid" value="true">
-        <input type="submit" value="Checkout" class="btn btn-outline-primary btn-sm">
+        <input type="submit" value="Checkout" class="btn btn-primary btn-sm">
     </form>
 
 <?php
