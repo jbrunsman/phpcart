@@ -13,7 +13,8 @@ if (array_key_exists('cart', $_SESSION) && !empty($_SESSION['cart'])) {
     $carted_items = '';
     $sub_total = 0;
     foreach($_SESSION['cart'] as $key => $value) {
-        $carted_items .= $key . ", ";
+        $scrubbed_key = filter_var($key, FILTER_SANITIZE_NUMBER_INT);
+        $carted_items .= $scrubbed_key . ", ";
         // list of carted item IDs for sql query
     }
     $carted_items = substr($carted_items, 0, -2);

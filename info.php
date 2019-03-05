@@ -2,7 +2,7 @@
 require_once "../mysqli_connect.php";
 include "top.php";
 
-$i = $_GET['itemid'];
+$i = filter_var($_GET['itemid'], FILTER_SANITIZE_NUMBER_INT);
 $query = "SELECT * FROM products WHERE id=$i";
 $response = mysqli_query($dbc, $query);
 $item = mysqli_fetch_assoc($response);
